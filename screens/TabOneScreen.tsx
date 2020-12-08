@@ -2,9 +2,16 @@ import * as React from "react";
 import { StyleSheet } from "react-native";
 
 import ButtonDefault from "../components/ButtonDefault";
-import { Text, View } from "../components/Themed";
+import { View } from "../components/Themed";
+
+import api from '../services/api';
 
 export default function TabOneScreen() {
+  async function teste() {
+    const res = await api.get('AtomicCollect');
+    console.log(res);
+  }
+  teste(); 
   return (
     <View style={styles.container}>
       <ButtonDefault icon="receipt" title="Exames" path="/Exames" />

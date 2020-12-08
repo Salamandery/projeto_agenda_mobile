@@ -1,10 +1,20 @@
 import * as React from "react";
-import { StyleSheet, Image } from "react-native";
+import { StyleSheet, Image, TextInput } from "react-native";
 
 import img from "../assets/images/profile.jpg";
 import { Text, View } from "../components/Themed";
 
 export default function TabTwoScreen() {
+  const [nome, setNome] = React.useState("Rodolfo Marques Ferreira de Abreu");
+  const [idade, setIdade] = React.useState("");
+  const [dtNascimento, setDtNascimento] = React.useState("");
+  const [tpSanguineo, setTpSanguineo] = React.useState("");
+  
+  const [email, setEmail] = React.useState("");
+  const [peso, setPeso] = React.useState("");
+  const [alergias, setAlergias] = React.useState("");
+  const [doencas, setDoencas] = React.useState("");
+  const [endereco, setEndereco] = React.useState("");
   return (
     <View style={styles.container}>
       <View style={styles.profileContainer}>
@@ -13,28 +23,72 @@ export default function TabTwoScreen() {
         </View>
         <View style={styles.infoContainer}>
           <Text style={styles.infoLabel}>Nome:</Text>
-          <Text style={styles.infoText}>Melquezedeque Alves</Text>
+          <TextInput 
+            multiline
+            placeholder="NOME COMPLETO" 
+            style={[styles.infoText, {height: 40}]} 
+            value={nome} 
+            onChangeText={setNome} 
+          />
           <Text style={styles.infoLabel}>Idade:</Text>
-          <Text style={styles.infoText}>20</Text>
-          <Text style={styles.infoLabel}>Data de Nascimento:</Text>
-          <Text style={styles.infoText}>Ontem mesmo</Text>
+          <TextInput 
+            placeholder="IDADE"
+            style={styles.infoText} 
+            value={idade} 
+            onChangeText={setIdade} 
+          />
+          <Text style={styles.infoLabel}>Data de Nascimento</Text>
+          <TextInput 
+            placeholder="DATA DE NASCIMENTO"
+            style={styles.infoText} 
+            value={dtNascimento} 
+            onChangeText={setDtNascimento} 
+          />
           <Text style={styles.infoLabel}>Tipo Sanguíneo:</Text>
-          <Text style={styles.infoText}>A</Text>
+          <TextInput 
+            placeholder="TIPO SANGUINEO"
+            style={styles.infoText} 
+            value={tpSanguineo} 
+            onChangeText={setTpSanguineo} 
+          />
         </View>
       </View>
       <View style={styles.otherInfoContainer}>
-        <Text style={styles.otherInfoLabel}>Email:</Text>
-        <Text style={styles.otherInfoText}>melquezedeque@melquenan.com</Text>
+        <Text style={styles.otherInfoLabel}>E-mail:</Text>
+        <TextInput 
+          placeholder="E-MAIL"
+          style={styles.otherInfoText} 
+          value={email}
+          onChangeText={setEmail}
+        />
         <Text style={styles.otherInfoLabel}>Peso:</Text>
-        <Text style={styles.otherInfoText}>100kg</Text>
+        <TextInput 
+          placeholder="PESO EM KG"
+          style={styles.otherInfoText} 
+          value={peso}
+          onChangeText={setPeso}
+        />
         <Text style={styles.otherInfoLabel}>Alergia:</Text>
-        <Text style={styles.otherInfoText}>
-          Melque não tem alergia, melque é melque
-        </Text>
-        <Text style={styles.otherInfoLabel}>Doença Crônicas:</Text>
-        <Text style={styles.otherInfoText}>Melque não fica doente</Text>
+        <TextInput 
+          placeholder="ALERGIAS"
+          style={styles.otherInfoText} 
+          value={alergias}
+          onChangeText={setAlergias}
+        />
+        <Text style={styles.otherInfoLabel}>DoençaS Crônicas:</Text>
+        <TextInput 
+          placeholder="DOENÇAS CRÔNICAS"
+          style={styles.otherInfoText} 
+          value={doencas}
+          onChangeText={setDoencas}
+        />
         <Text style={styles.otherInfoLabel}>Endereço Residencial:</Text>
-        <Text style={styles.otherInfoText}>Rua Melquenan Pessoa</Text>
+        <TextInput 
+          placeholder="ENDEREÇO RESIDENCIAL"
+          style={styles.otherInfoText} 
+          value={endereco}
+          onChangeText={setEndereco}
+        />
       </View>
     </View>
   );
@@ -49,20 +103,22 @@ const styles = StyleSheet.create({
     marginTop: 15,
     marginHorizontal: 15,
     flexDirection: "row",
+    alignItems: 'center'
   },
   imageContainer: {
     borderWidth: 1,
     borderColor: "#3bc9f5",
-    height: 140,
-    width: 140,
+    height: 172,
+    width: 147,
   },
   imgProfile: {
     flex: 1,
-    height: 138,
-    width: 138,
+    height: 172,
+    width: 145,
   },
   infoContainer: {
     marginHorizontal: 5,
+    width: 180
   },
   infoLabel: {
     color: "#3bc9f5",
@@ -72,6 +128,7 @@ const styles = StyleSheet.create({
   infoText: {
     color: "#3784a6",
     fontSize: 14,
+    alignSelf: 'stretch'
   },
   otherInfoContainer: {
     marginTop: 5,

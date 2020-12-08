@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginBottom: 30,
     alignItems: "flex-start",
-    width: 250,
+    width: 290,
   },
   codeHighlightText: {
     color: "#3bc9f5",
@@ -64,5 +64,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     alignItems: "center",
+    alignSelf: "stretch"
   },
 });
