@@ -9,17 +9,19 @@ export default function ButtonDefault({
   path,
   title,
   icon,
+  styleCustom,
 }: {
   path: string;
   title: string;
   icon: string;
+  styleCustom: object;
 }) {
   const handleHelpPress = useCallback(() => {
     //WebBrowser.openBrowserAsync(path);
   }, [path, WebBrowser]);
   return (
     <View>
-      <View style={styles.container}>
+      <View style={[styles.container, styleCustom]}>
         <TouchableOpacity
           style={styles.buttonContainer}
           onPress={handleHelpPress}
@@ -29,9 +31,7 @@ export default function ButtonDefault({
             size={24}
             color="#3bc9f5"
           />
-          <Text
-            style={[styles.homeScreenFilename, styles.codeHighlightText]}
-          >
+          <Text style={[styles.homeScreenFilename, styles.codeHighlightText]}>
             {title}
           </Text>
         </TouchableOpacity>
@@ -64,6 +64,6 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: "row",
     alignItems: "center",
-    alignSelf: "stretch"
+    alignSelf: "stretch",
   },
 });
